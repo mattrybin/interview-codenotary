@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react"
 import type { LinksFunction } from "@remix-run/node"
-
+import { RootLayout } from "./components/layout/Layout"
 import "./tailwind.css"
 
 export const links: LinksFunction = () => [
@@ -29,7 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-background text-foreground antialiased">
-        {children}
+        <RootLayout>{children}</RootLayout>
         <ScrollRestoration />
         <Scripts />
       </body>
