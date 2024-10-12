@@ -25,6 +25,7 @@ import {
 } from "../components/ui/dropdown-menu"
 import { Input } from "../components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet"
+import { Navigation } from "../components/layout/Navigation"
 
 export const description =
   "A products dashboard with a sidebar navigation and a main content area. The dashboard has a header with a search input and a user menu. The sidebar has a logo, navigation links, and a card with a call to action. The main content area shows an empty state with a call to action."
@@ -197,49 +198,6 @@ export default function Dashboard() {
       </div>
     </div>
   )
-
-  function Navigation() {
-    return (
-      <div className="flex-1">
-        <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-          <Link
-            to="/"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-          >
-            <Home className="h-4 w-4" />
-            Dashboard
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-          >
-            <HandCoins className="h-4 w-4" />
-            Transactions
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-          >
-            <Package2 className="h-4 w-4" />
-            Accounts
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-          >
-            <LineChart className="h-4 w-4" />
-            <span>Analytics</span>
-            <Badge
-              variant="secondary"
-              className="ml-auto"
-            >
-              Coming Soon
-            </Badge>
-          </Link>
-        </nav>
-      </div>
-    )
-  }
 
   function Branding() {
     return (
