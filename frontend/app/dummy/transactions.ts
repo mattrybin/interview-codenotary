@@ -2,40 +2,67 @@ import seedrandom from "seedrandom"
 
 export const accounts = [
   {
-    accountNumber: "1001",
-    accountName: "John Doe"
+    id: "1001",
+    accountName: "John Doe",
+    email: "john.doe@example.com",
+    createdDate: "2024-01-15T10:30:00Z",
+    type: "professional"
   },
   {
-    accountNumber: "1002",
-    accountName: "Alice Smith"
+    id: "1002",
+    accountName: "Alice Smith",
+    email: "alice.smith@example.com",
+    createdDate: "2024-02-20T14:45:00Z",
+    type: "normal"
   },
   {
-    accountNumber: "1003",
-    accountName: "Mario Rossi"
+    id: "1003",
+    accountName: "Mario Rossi",
+    email: "mario.rossi@example.com",
+    createdDate: "2024-03-10T09:15:00Z",
+    type: "professional"
   },
   {
-    accountNumber: "1004",
-    accountName: "Emma Johnson"
+    id: "1004",
+    accountName: "Emma Johnson",
+    email: "emma.johnson@example.com",
+    createdDate: "2024-04-05T16:20:00Z",
+    type: "normal"
   },
   {
-    accountNumber: "1005",
-    accountName: "Hans Schmidt"
+    id: "1005",
+    accountName: "Hans Schmidt",
+    email: "hans.schmidt@example.com",
+    createdDate: "2024-05-12T11:00:00Z",
+    type: "professional"
   },
   {
-    accountNumber: "1006",
-    accountName: "Sophie Dubois"
+    id: "1006",
+    accountName: "Sophie Dubois",
+    email: "sophie.dubois@example.com",
+    createdDate: "2024-06-18T13:30:00Z",
+    type: "normal"
   },
   {
-    accountNumber: "1007",
-    accountName: "Luca Bianchi"
+    id: "1007",
+    accountName: "Luca Bianchi",
+    email: "luca.bianchi@example.com",
+    createdDate: "2024-07-22T08:45:00Z",
+    type: "professional"
   },
   {
-    accountNumber: "1008",
-    accountName: "Anna Müller"
+    id: "1008",
+    accountName: "Anna Müller",
+    email: "anna.mueller@example.com",
+    createdDate: "2024-08-30T15:10:00Z",
+    type: "normal"
   },
   {
-    accountNumber: "1009",
-    accountName: "James Wilson"
+    id: "1009",
+    accountName: "James Wilson",
+    email: "james.wilson@example.com",
+    createdDate: "2024-09-14T12:00:00Z",
+    type: "professional"
   }
 ]
 
@@ -52,7 +79,7 @@ const streets = [
 
 export const generateTransaction = (
   account: (typeof accounts)[0],
-  id: number,
+  transactionId: number,
   rng: () => number
 ) => {
   const ibanPrefix = ibanPrefixes[Math.floor(rng() * ibanPrefixes.length)]
@@ -67,12 +94,15 @@ export const generateTransaction = (
 
   return {
     ...account,
-    id,
+    transactionId,
     iban: `${ibanPrefix}${rng().toString(36).substr(2, 16)}`,
     address: `${Math.floor(rng() * 500) + 1} ${street}, ${city}`,
     amount: parseFloat(amount.toFixed(2)),
-    type,
-    date: new Date(Date.now() - Math.floor(rng() * 30 * 24 * 60 * 60 * 1000)).toISOString()
+    transactionType: type,
+    date: new Date(Date.now() - Math.floor(rng() * 30 * 24 * 60 * 60 * 1000)).toISOString(),
+    email: account.email,
+    createdDate: account.createdDate,
+    accountType: account.type
   }
 }
 
@@ -88,5 +118,5 @@ export const generateTransactions = (
 }
 
 export const getUniqueAccountCount = (transactions: ReturnType<typeof generateTransactions>) => {
-  return new Set(transactions.map((t) => t.accountNumber)).size
+  return new Set(transactions.map((t) => t.id)).size
 }

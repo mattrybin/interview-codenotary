@@ -15,9 +15,6 @@ import { generateTransactions, getUniqueAccountCount } from "../../dummy/transac
 export const description = "An interactive bar chart"
 
 const chartConfig = {
-  amount: {
-    label: "Amount"
-  },
   receiving: {
     label: "Receiving",
     color: "hsl(var(--chart-1))"
