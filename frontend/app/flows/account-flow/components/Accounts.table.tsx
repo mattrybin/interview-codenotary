@@ -16,7 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../components/ui/tabs"
 import { Badge } from "../../../components/ui/badge"
 import { accounts } from "../../../dummy/transactions"
-import { TableActions } from "./TableActions"
+import { TableActions } from "../../../components/TableActions"
 import { AccountType } from "../../../types/account"
 
 const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: string }) => {
@@ -54,7 +54,7 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
               </Badge>
             </TableCell>
             <TableCell className="hidden md:table-cell">
-              {new Date(account.createdDate).toLocaleDateString()}
+              {new Date(account.createdDate).toISOString().slice(0, 10)}
             </TableCell>
             <TableCell className="text-right">{account.id}</TableCell>
           </TableRow>

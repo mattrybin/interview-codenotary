@@ -94,9 +94,12 @@ export const generateTransaction = (
 
   const type = rng() > 0.5 ? "receiving" : "sending"
 
+  const date = new Date(Date.now() - Math.floor(rng() * 30 * 24 * 60 * 60 * 1000))
+  const createdDate = date.toISOString() // Use ISO string format
+
   return {
     id,
-    createdDate: new Date(Date.now() - Math.floor(rng() * 30 * 24 * 60 * 60 * 1000)).toISOString(),
+    createdDate,
     iban: `${ibanPrefix}${rng().toString(36).substr(2, 16)}`,
     address: `${Math.floor(rng() * 500) + 1} ${street}, ${city}`,
     amount: parseFloat(amount.toFixed(2)),
