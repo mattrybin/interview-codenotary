@@ -10,7 +10,7 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from "../../components/ui/chart"
-import { generateTransactions, getUniqueAccountCount } from "../../dummy/transactions"
+import { accounts, generateTransactions, getUniqueAccountCount } from "../../dummy/transactions"
 
 export const description = "An interactive bar chart"
 
@@ -30,22 +30,22 @@ export function ExampleChart() {
   const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("receiving")
 
   const filteredData = React.useMemo(() => {
-    return chartData.filter((t) => t.type === activeChart)
+    return chartData.filter((t) => t.transactionType === activeChart)
   }, [activeChart, chartData])
 
   const total = React.useMemo(
     () => ({
       receiving: chartData
-        .filter((t) => t.type === "receiving")
+        .filter((t) => t.transactionType === "receiving")
         .reduce((acc, curr) => acc + curr.amount, 0),
       sending: chartData
-        .filter((t) => t.type === "sending")
+        .filter((t) => t.transactionType === "sending")
         .reduce((acc, curr) => acc + curr.amount, 0)
     }),
     [chartData]
   )
 
-  const accountCount = React.useMemo(() => getUniqueAccountCount(chartData), [chartData])
+  const accountCount = React.useMemo(() => getUniqueAccountCount(accounts), [])
 
   return (
     <Card>
