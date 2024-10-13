@@ -1,6 +1,7 @@
 import seedrandom from "seedrandom"
+import { AccountType } from "../types/account"
 
-export const accounts = [
+export const accounts: AccountType[] = [
   {
     id: "1001",
     accountName: "John Doe",
