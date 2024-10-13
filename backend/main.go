@@ -19,5 +19,6 @@ func setContentTypeMiddleware(next http.HandlerFunc) http.HandlerFunc {
 func NewRouter() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/accounts", setContentTypeMiddleware(getAccounts))
+	mux.HandleFunc("/transactions", setContentTypeMiddleware(getTransactions))
 	return mux
 }

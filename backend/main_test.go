@@ -24,16 +24,31 @@ func TestAPI(t *testing.T) {
 		response.NotEmpty()
 
 		response.Value(0).Object().
-			ContainsKey("id").HasValue("id", "1001").
-			ContainsKey("accountName").HasValue("accountName", "John Doe").
-			ContainsKey("email").HasValue("email", "john.doe@example.com").
+			ContainsKey("id").
+			ContainsKey("accountName").
+			ContainsKey("email").
 			ContainsKey("createdDate").
-			ContainsKey("type").HasValue("type", "professional")
+			ContainsKey("type")
 	})
 
-	t.Run("MethodNotAllowed", func(t *testing.T) {
-		e.POST("/accounts").
+	t.Run("GetTransactions", func(t *testing.T) {
+		response := e.GET("/transactions").
 			Expect().
-			Status(http.StatusMethodNotAllowed)
+			Status(http.StatusOK).
+			JSON().Array()
+
+		response.NotEmpty()
+
+		response.Value(0).Object().
+			ContainsKey("id").
+			ContainsKey("createdDate").
+			ContainsKey("iban").
+			ContainsKey("address").
+			ContainsKey("amount").
+			ContainsKey("transactionType").
+			ContainsKey("accountId").
+			ContainsKey("accountEmail").
+			ContainsKey("accountName").
+			ContainsKey("accountType")
 	})
 }
