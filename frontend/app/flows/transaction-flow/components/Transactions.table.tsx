@@ -42,11 +42,8 @@ const TransactionTable = ({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {filteredTransactions.map((transaction, index) => (
-          <TableRow
-            key={transaction.id}
-            className={index === 0 ? "bg-accent" : ""}
-          >
+        {filteredTransactions.map((transaction) => (
+          <TableRow key={transaction.id}>
             <TableCell>
               <div className="font-medium">{transaction.accountName}</div>
               <div className="hidden text-sm text-muted-foreground md:inline">

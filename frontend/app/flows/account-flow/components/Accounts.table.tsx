@@ -36,11 +36,8 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
         </TableRow>
       </TableHeader>
       <TableBody>
-        {filteredAccounts.map((account, index) => (
-          <TableRow
-            key={account.id}
-            className={index === 0 ? "bg-accent" : ""}
-          >
+        {filteredAccounts.map((account) => (
+          <TableRow key={account.id}>
             <TableCell>
               <div className="font-medium">{account.accountName}</div>
               <div className="hidden text-sm text-muted-foreground md:inline">{account.email}</div>
