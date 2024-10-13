@@ -156,7 +156,7 @@ export const getUniqueAccountCount = (accounts: AccountType[]) => {
 }
 
 async function writeDataToFiles(accounts: AccountType[], transactions: TransactionType[]) {
-  const dataDir = "data"
+  const dataDir = "../backend/seed"
   await ensureDir(dataDir)
 
   await writeJson(`${dataDir}/accounts.json`, accounts, { spaces: 2 })
