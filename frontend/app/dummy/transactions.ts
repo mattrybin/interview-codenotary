@@ -1,5 +1,6 @@
 import seedrandom from "seedrandom"
 import { AccountType } from "../types/account"
+import { TransactionType } from "../types/transaction"
 
 export const accounts: AccountType[] = [
   {
@@ -80,9 +81,9 @@ const streets = [
 
 export const generateTransaction = (
   account: (typeof accounts)[0],
-  transactionId: number,
+  id: string,
   rng: () => number
-) => {
+): TransactionType => {
   const ibanPrefix = ibanPrefixes[Math.floor(rng() * ibanPrefixes.length)]
   const city = cities[Math.floor(rng() * cities.length)]
   const street = streets[Math.floor(rng() * streets.length)]
@@ -94,15 +95,15 @@ export const generateTransaction = (
   const type = rng() > 0.5 ? "receiving" : "sending"
 
   return {
-    ...account,
-    transactionId,
+    id,
+    createdDate: new Date(Date.now() - Math.floor(rng() * 30 * 24 * 60 * 60 * 1000)).toISOString(),
     iban: `${ibanPrefix}${rng().toString(36).substr(2, 16)}`,
     address: `${Math.floor(rng() * 500) + 1} ${street}, ${city}`,
     amount: parseFloat(amount.toFixed(2)),
     transactionType: type,
-    date: new Date(Date.now() - Math.floor(rng() * 30 * 24 * 60 * 60 * 1000)).toISOString(),
-    email: account.email,
-    createdDate: account.createdDate,
+    accountId: account.id,
+    accountEmail: account.email,
+    accountName: account.accountName,
     accountType: account.type
   }
 }
@@ -114,10 +115,12 @@ export const generateTransactions = (
   const rng = seedrandom(seed)
   let id = 1
   return accounts.flatMap((account) =>
-    Array.from({ length: transactionsPerAccount }, () => generateTransaction(account, id++, rng))
+    Array.from({ length: transactionsPerAccount }, () =>
+      generateTransaction(account, `${account.id}-${id++}`, rng)
+    )
   )
 }
 
-export const getUniqueAccountCount = (transactions: ReturnType<typeof generateTransactions>) => {
-  return new Set(transactions.map((t) => t.id)).size
+export const getUniqueAccountCount = (accounts: AccountType[]) => {
+  return new Set(accounts.map((account) => account.id)).size
 }
