@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Transaction struct {
@@ -20,25 +22,39 @@ type Transaction struct {
 	AccountEmail    string    `json:"accountEmail"`
 }
 
-func GetTransactions(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+func GetTransactions(c *gin.Context) {
+	accountID := c.Param("id")
+	if accountID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Invalid account ID",
+		})
 		return
 	}
 
 	data, err := os.ReadFile("seed/transactions.json")
 	if err != nil {
-		http.Error(w, "Error reading transactions data", http.StatusInternalServerError)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Error reading transactions data",
+		})
 		return
 	}
 
-	var transactions []Transaction
-	err = json.Unmarshal(data, &transactions)
+	var allTransactions []Transaction
+	err = json.Unmarshal(data, &allTransactions)
 	if err != nil {
-		http.Error(w, "Error processing transactions data", http.StatusInternalServerError)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Error processing transactions data",
+		})
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(transactions)
+	// Filter transactions by account ID
+	filteredTransactions := []Transaction{}
+	for _, transaction := range allTransactions {
+		if transaction.AccountID == accountID {
+			filteredTransactions = append(filteredTransactions, transaction)
+		}
+	}
+
+	c.JSON(http.StatusOK, filteredTransactions)
 }

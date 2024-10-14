@@ -2,18 +2,31 @@ package main
 
 import (
 	"net/http"
-	"net/http/httptest"
 	"testing"
 
 	"github.com/gavv/httpexpect/v2"
+	"github.com/gin-gonic/gin"
+	"github.com/mattrybin/interview-codenotary/backend/app"
 )
 
-func TestAPI(t *testing.T) {
-	handler := NewRouter()
-	server := httptest.NewServer(handler)
-	defer server.Close()
+func APITester(t *testing.T, handler http.Handler) *httpexpect.Expect {
+	return httpexpect.WithConfig(httpexpect.Config{
+		Client: &http.Client{
+			Transport: httpexpect.NewBinder(handler),
+			Jar:       httpexpect.NewCookieJar(),
+		},
+		Reporter: httpexpect.NewAssertReporter(t),
+		Printers: []httpexpect.Printer{
+			httpexpect.NewDebugPrinter(t, true),
+		},
+	})
+}
 
-	e := httpexpect.Default(t, server.URL)
+func TestAPI(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+	router := app.SetupApp()
+
+	e := APITester(t, router)
 
 	t.Run("GetAccounts", func(t *testing.T) {
 		response := e.GET("/accounts").
@@ -32,7 +45,7 @@ func TestAPI(t *testing.T) {
 	})
 
 	t.Run("GetTransactions", func(t *testing.T) {
-		response := e.GET("/transactions").
+		response := e.GET("/transactions/1001").
 			Expect().
 			Status(http.StatusOK).
 			JSON().Array()

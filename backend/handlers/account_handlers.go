@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Account struct {
@@ -15,25 +17,23 @@ type Account struct {
 	Type        string    `json:"type"`
 }
 
-func GetAccounts(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
+func GetAccounts(c *gin.Context) {
 	data, err := os.ReadFile("seed/accounts.json")
 	if err != nil {
-		http.Error(w, "Error reading accounts data", http.StatusInternalServerError)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Error reading accounts data",
+		})
 		return
 	}
 
 	var accounts []Account
 	err = json.Unmarshal(data, &accounts)
 	if err != nil {
-		http.Error(w, "Error processing accounts data", http.StatusInternalServerError)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Error processing accounts data",
+		})
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(accounts)
+	c.JSON(http.StatusOK, accounts)
 }
