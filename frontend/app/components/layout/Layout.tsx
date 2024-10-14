@@ -6,18 +6,21 @@ import {
   RootLayoutContainer,
   SidebarLayoutContainer
 } from "../../components/layout/containers"
+import { Breadcrumb } from "./Breadcrumb"
+import React from "react"
 
-export function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <RootLayoutContainer>
-      <SidebarLayoutContainer>
-        <div className="flex max-h-screen flex-col gap-2">
-          <Branding />
-          <Navigation />
-          <GetStartedCard />
-        </div>
-      </SidebarLayoutContainer>
-      <MainLayoutContainer>{children}</MainLayoutContainer>
-    </RootLayoutContainer>
-  )
-}
+export const RootLayout = ({ children }: { children: React.ReactNode }) => (
+  <RootLayoutContainer>
+    <SidebarLayoutContainer>
+      <div className="flex max-h-screen flex-col gap-2">
+        <Branding />
+        <Navigation />
+        <GetStartedCard />
+      </div>
+    </SidebarLayoutContainer>
+    <MainLayoutContainer>
+      <Breadcrumb />
+      {children}
+    </MainLayoutContainer>
+  </RootLayoutContainer>
+)
