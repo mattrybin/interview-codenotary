@@ -1,5 +1,5 @@
 import { NavLink } from "@remix-run/react"
-import { Home, HandCoins, Package2 } from "lucide-react"
+import { Home, Package2 } from "lucide-react"
 
 const navLinks = [
   {
@@ -7,12 +7,6 @@ const navLinks = [
     label: "Dashboard",
     icon: Home,
     id: "nav-link-dashboard"
-  },
-  {
-    path: "/transactions",
-    label: "Transactions",
-    icon: HandCoins,
-    id: "nav-link-transactions"
   },
   {
     path: "/accounts",
