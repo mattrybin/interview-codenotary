@@ -1,12 +1,10 @@
-import { AccountsTable } from "../flows/account-flow/components/Accounts.table"
+import { Outlet } from "@remix-run/react"
 
-export default function Accounts() {
+export default function AccountsLayout() {
   return (
     <>
-      <div className="flex items-center">
-        <h1 className="text-lg font-semibold md:text-2xl">Accounts</h1>
-      </div>
-      <AccountsTable />
+      <h1 className="text-lg font-semibold md:text-2xl mb-4">Accounts</h1>
+      <Outlet />
     </>
   )
 }

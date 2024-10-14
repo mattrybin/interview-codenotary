@@ -18,6 +18,7 @@ import { Badge } from "../../../components/ui/badge"
 import { accounts } from "../../../dummy/transactions"
 import { TableActions } from "../../../components/TableActions"
 import { AccountType } from "../../../types/account"
+import { Link } from "@remix-run/react"
 
 const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: string }) => {
   const filteredAccounts =
@@ -37,23 +38,33 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
       </TableHeader>
       <TableBody>
         {filteredAccounts.map((account) => (
-          <TableRow key={account.id}>
-            <TableCell>
-              <div className="font-medium">{account.accountName}</div>
-              <div className="hidden text-sm text-muted-foreground md:inline">{account.email}</div>
-            </TableCell>
-            <TableCell className="hidden sm:table-cell">
-              <Badge
-                className="text-xs"
-                variant={account.type === "normal" ? "outline" : "secondary"}
-              >
-                {account.type.charAt(0).toUpperCase() + account.type.slice(1)}
-              </Badge>
-            </TableCell>
-            <TableCell className="hidden md:table-cell">
-              {new Date(account.createdDate).toISOString().slice(0, 10)}
-            </TableCell>
-            <TableCell className="text-right">{account.id}</TableCell>
+          <TableRow
+            key={account.id}
+            className="group"
+          >
+            <Link
+              to={`/accounts/${account.id}`}
+              className="contents hover:bg-muted/50 transition-colors"
+            >
+              <TableCell>
+                <div className="font-medium group-hover:underline">{account.accountName}</div>
+                <div className="hidden text-sm text-muted-foreground md:inline">
+                  {account.email}
+                </div>
+              </TableCell>
+              <TableCell className="hidden sm:table-cell">
+                <Badge
+                  className="text-xs"
+                  variant={account.type === "normal" ? "outline" : "secondary"}
+                >
+                  {account.type.charAt(0).toUpperCase() + account.type.slice(1)}
+                </Badge>
+              </TableCell>
+              <TableCell className="hidden md:table-cell">
+                {new Date(account.createdDate).toISOString().slice(0, 10)}
+              </TableCell>
+              <TableCell className="text-right">{account.id}</TableCell>
+            </Link>
           </TableRow>
         ))}
       </TableBody>
