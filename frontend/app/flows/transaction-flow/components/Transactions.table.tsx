@@ -34,7 +34,7 @@ const TransactionTable = ({
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Account Name</TableHead>
+          <TableHead>ID</TableHead>
           <TableHead className="hidden sm:table-cell">Transaction Type</TableHead>
           <TableHead className="hidden md:table-cell">Created Date</TableHead>
           <TableHead className="text-right">Amount</TableHead>
@@ -44,10 +44,7 @@ const TransactionTable = ({
         {filteredTransactions.map((transaction) => (
           <TableRow key={transaction.id}>
             <TableCell>
-              <div className="font-medium">{transaction.accountName}</div>
-              <div className="hidden text-sm text-muted-foreground md:inline">
-                {transaction.accountEmail}
-              </div>
+              <div className="font-medium">{transaction.id}</div>
             </TableCell>
             <TableCell className="hidden sm:table-cell">
               <Badge

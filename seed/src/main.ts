@@ -22,10 +22,7 @@ export const TransactionSchema = z.object({
   address: z.string(),
   amount: z.number(),
   transactionType: TransactionTypeSchema,
-  accountName: accountSchema.shape.accountName,
-  accountEmail: accountSchema.shape.email,
-  accountId: accountSchema.shape.id,
-  accountType: accountSchema.shape.type
+  accountId: accountSchema.shape.id
 })
 
 export type TransactionType = z.infer<typeof TransactionSchema>
@@ -131,10 +128,7 @@ export const generateTransaction = (
     address: `${Math.floor(rng() * 500) + 1} ${street}, ${city}`,
     amount: parseFloat(amount.toFixed(2)),
     transactionType: type,
-    accountId: account.id,
-    accountEmail: account.email,
-    accountName: account.accountName,
-    accountType: account.type
+    accountId: account.id
   }
 }
 
