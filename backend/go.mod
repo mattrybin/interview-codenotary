@@ -3,6 +3,7 @@ module github.com/mattrybin/interview-codenotary/backend
 go 1.21.3
 
 require (
+	github.com/cosmtrek/air v1.49.0
 	github.com/gavv/httpexpect/v2 v2.16.0
 	github.com/gin-gonic/gin v1.10.0
 )
