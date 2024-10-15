@@ -15,7 +15,6 @@ import {
 } from "../../../components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../components/ui/tabs"
 import { Badge } from "../../../components/ui/badge"
-import { generateTransactions } from "../../../dummy/transactions"
 import { TableActions } from "../../../components/TableActions"
 import { TransactionType } from "../../../types/transaction"
 
@@ -79,9 +78,7 @@ const TransactionTable = ({
   )
 }
 
-export const TransactionsTable = () => {
-  const transactions = generateTransactions()
-
+export const TransactionsTable = ({ transactions }: { transactions: TransactionType[] }) => {
   return (
     <Tabs defaultValue="All">
       <div className="flex items-center">
