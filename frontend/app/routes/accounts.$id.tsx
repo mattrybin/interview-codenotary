@@ -8,7 +8,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   const { id } = params
   try {
     const transactions: TransactionType[] = await ky
-      .get(`http://localhost:4000/transactions/${id}`)
+      .get(`http://localhost:4000/accounts/${id}/transactions`)
       .json()
     return json({ transactions })
   } catch (error) {

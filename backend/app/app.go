@@ -6,10 +6,12 @@ import (
 )
 
 func SetupApp() *gin.Engine {
+	gin.SetMode(gin.DebugMode)
 	router := gin.Default()
 
 	router.GET("/accounts", handlers.GetAccounts)
-	router.GET("/transactions/:id", handlers.GetTransactions)
+	router.GET("/accounts/:id", handlers.GetAccount)
+	router.GET("/accounts/:id/transactions", handlers.GetTransactions)
 
 	return router
 }
