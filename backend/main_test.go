@@ -41,7 +41,9 @@ func TestAPI(t *testing.T) {
 			ContainsKey("accountName").
 			ContainsKey("email").
 			ContainsKey("createdDate").
-			ContainsKey("type")
+			ContainsKey("type").
+			ContainsKey("iban").
+			ContainsKey("address")
 	})
 
 	t.Run("GetTransactions", func(t *testing.T) {

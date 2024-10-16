@@ -5,7 +5,9 @@ export const accountSchema = z.object({
   accountName: z.string(),
   email: z.string().email(),
   createdDate: z.string().datetime(),
-  type: z.enum(["normal", "professional"])
+  type: z.enum(["normal", "professional"]),
+  iban: z.string(),
+  address: z.string()
 })
 
 export type AccountType = z.infer<typeof accountSchema>

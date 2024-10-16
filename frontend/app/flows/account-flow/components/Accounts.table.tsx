@@ -31,7 +31,9 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
         <TableRow>
           <TableHead>Account Name</TableHead>
           <TableHead className="hidden sm:table-cell">Type</TableHead>
-          <TableHead className="hidden md:table-cell">Created Date</TableHead>
+          <TableHead className="hidden md:table-cell">IBAN</TableHead>
+          <TableHead className="hidden lg:table-cell">Address</TableHead>
+          <TableHead className="hidden xl:table-cell">Created Date</TableHead>
           <TableHead className="text-right">ID</TableHead>
         </TableRow>
       </TableHeader>
@@ -59,7 +61,9 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
                   {account.type.charAt(0).toUpperCase() + account.type.slice(1)}
                 </Badge>
               </TableCell>
-              <TableCell className="hidden md:table-cell">
+              <TableCell className="hidden md:table-cell">{account.iban}</TableCell>
+              <TableCell className="hidden lg:table-cell">{account.address}</TableCell>
+              <TableCell className="hidden xl:table-cell">
                 {new Date(account.createdDate).toISOString().slice(0, 10)}
               </TableCell>
               <TableCell className="text-right">{account.id}</TableCell>
@@ -72,6 +76,7 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
 }
 
 export const AccountsTable = ({ accounts }: { accounts: AccountType[] }) => {
+  console.log(accounts)
   return (
     <Tabs defaultValue="All">
       <div className="flex items-center">

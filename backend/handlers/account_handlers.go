@@ -14,6 +14,8 @@ type Account struct {
 	Email       string    `json:"email"`
 	CreatedDate time.Time `json:"createdDate"`
 	Type        string    `json:"type"`
+	IBAN        string    `json:"iban"`
+	Address     string    `json:"address"`
 }
 
 func GetAccounts(c *gin.Context) {

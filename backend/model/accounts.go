@@ -14,6 +14,8 @@ type Account struct {
 	AccountName string           `json:"accountName"`
 	CreatedDate string           `json:"createdDate"`
 	Email       string           `json:"email"`
+	IBAN        string           `json:"iban"`
+	Address     string           `json:"address"`
 	ID          string           `json:"id"`
 	Type        string           `json:"type"`
 	VaultMD     vaultMetaAccount `json:"_vault_md"`
