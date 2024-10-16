@@ -15,7 +15,6 @@ import {
 } from "../../../components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../components/ui/tabs"
 import { Badge } from "../../../components/ui/badge"
-import { accounts } from "../../../dummy/transactions"
 import { TableActions } from "../../../components/TableActions"
 import { AccountType } from "../../../types/account"
 import { Link } from "@remix-run/react"
@@ -72,7 +71,7 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
   )
 }
 
-export const AccountsTable = () => {
+export const AccountsTable = ({ accounts }: { accounts: AccountType[] }) => {
   return (
     <Tabs defaultValue="All">
       <div className="flex items-center">
