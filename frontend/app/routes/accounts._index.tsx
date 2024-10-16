@@ -15,7 +15,10 @@ export const loader: LoaderFunction = async () => {
   }
 }
 
+// Export the loader type
+export type AccountsLoaderData = { accounts: AccountType[] }
+
 export default function AccountsList() {
-  const { accounts } = useLoaderData<{ accounts: AccountType[] }>()
+  const { accounts } = useLoaderData<AccountsLoaderData>()
   return <AccountsTable accounts={accounts} />
 }
