@@ -60,10 +60,28 @@ func TestAPI(t *testing.T) {
 		response.Value(0).Object().
 			ContainsKey("id").
 			ContainsKey("createdDate").
-			ContainsKey("iban").
-			ContainsKey("address").
 			ContainsKey("amount").
 			ContainsKey("transactionType").
 			ContainsKey("accountId")
+	})
+	t.Run("CreateTransaction", func(t *testing.T) {
+		preResponse := e.GET("/accounts").
+			Expect().
+			Status(http.StatusOK).
+			JSON().Array()
+		accountID := preResponse.Value(0).Object().Value("id").String().Raw()
+
+		payload := map[string]interface{}{
+			"amount":          100.0,
+			"transactionType": "sending",
+		}
+
+		response := e.POST("/accounts/" + accountID + "/transactions").
+			WithJSON(payload).
+			Expect().
+			Status(http.StatusCreated).
+			JSON().Object()
+
+		response.Value("message").String().IsEqual("Transaction created successfully")
 	})
 }

@@ -13,6 +13,7 @@ func SetupApp() *gin.Engine {
 
 	router.GET("/accounts", handlers.GetAccounts)
 	router.GET("/accounts/:id/transactions", handlers.GetTransactions)
+	router.POST("/accounts/:id/transactions", handlers.CreateTransaction)
 
 	return router
 }

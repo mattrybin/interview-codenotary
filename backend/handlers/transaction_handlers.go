@@ -37,3 +37,36 @@ func GetTransactions(c *gin.Context) {
 	c.JSON(http.StatusOK, transactionsCollection)
 
 }
+
+func CreateTransaction(c *gin.Context) {
+	accountID := c.Param("id")
+	if accountID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Invalid account ID",
+		})
+		return
+	}
+
+	var newTransaction model.NewTransaction
+	if err := c.ShouldBindJSON(&newTransaction); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Invalid transaction data",
+		})
+		return
+	}
+
+	// Set the accountID from the URL parameter
+	newTransaction.AccountID = accountID
+
+	err := model.CreateTransaction(newTransaction)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to create transaction",
+		})
+		return
+	}
+
+	c.JSON(http.StatusCreated, gin.H{
+		"message": "Transaction created successfully",
+	})
+}

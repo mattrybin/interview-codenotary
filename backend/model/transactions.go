@@ -5,17 +5,23 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 
 	"github.com/mattrybin/interview-codenotary/backend/utils"
+)
+
+type TransactionType string
+
+const (
+	TransactionTypeSending   TransactionType = "sending"
+	TransactionTypeReceiving TransactionType = "receiving"
 )
 
 type Transaction struct {
 	ID              string               `json:"id"`
 	CreatedDate     string               `json:"createdDate"`
-	IBAN            string               `json:"iban"`
-	Address         string               `json:"address"`
 	Amount          float64              `json:"amount"`
-	TransactionType string               `json:"transactionType"`
+	TransactionType TransactionType      `json:"transactionType"`
 	AccountID       string               `json:"accountId"`
 	VaultMD         vaultMetaTransaction `json:"_vault_md"`
 }
@@ -95,4 +101,36 @@ func GetTransactions(accountId string) ([]Transaction, error) {
 	}
 
 	return documents, nil
+}
+
+type NewTransaction struct {
+	CreatedDate     string          `json:"createdDate"`
+	Amount          float64         `json:"amount"`
+	TransactionType TransactionType `json:"transactionType"`
+	AccountID       string          `json:"accountId"`
+}
+
+func CreateTransaction(transaction NewTransaction) error {
+	transactionDocument := NewTransaction{
+		CreatedDate:     time.Now().Format("2006-01-02T15:04:05.000Z"),
+		Amount:          transaction.Amount,
+		TransactionType: transaction.TransactionType,
+		AccountID:       transaction.AccountID,
+	}
+	url := "https://vault.immudb.io/ics/api/v1/ledger/default/collection/transactions/document"
+	payload, err := json.Marshal(transactionDocument)
+	if err != nil {
+		return fmt.Errorf("failed to marshal transaction document: %w", err)
+	}
+	res, err := utils.MakeRequest("PUT", url, utils.GetAPIKey("transactions"), payload)
+	if err != nil {
+		return fmt.Errorf("failed to send request: %w", err)
+	}
+	defer res.Body.Close()
+
+	if res.StatusCode != http.StatusOK {
+		return fmt.Errorf("failed to create document: %s", res.Status)
+	}
+
+	return nil
 }
