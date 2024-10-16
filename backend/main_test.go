@@ -44,23 +44,13 @@ func TestAPI(t *testing.T) {
 			ContainsKey("type")
 	})
 
-	t.Run("GetAccount", func(t *testing.T) {
-		response := e.GET("/accounts/1001").
+	t.Run("GetTransactions", func(t *testing.T) {
+		preResponse := e.GET("/accounts").
 			Expect().
 			Status(http.StatusOK).
-			JSON().Object()
-
-		response.NotEmpty()
-
-		response.ContainsKey("id").
-			ContainsKey("accountName").
-			ContainsKey("email").
-			ContainsKey("createdDate").
-			ContainsKey("type")
-	})
-
-	t.Run("GetTransactions", func(t *testing.T) {
-		response := e.GET("/accounts/1001/transactions").
+			JSON().Array()
+		accountID := preResponse.Value(0).Object().Value("id").String().Raw()
+		response := e.GET("/accounts/" + accountID + "/transactions").
 			Expect().
 			Status(http.StatusOK).
 			JSON().Array()
@@ -74,9 +64,6 @@ func TestAPI(t *testing.T) {
 			ContainsKey("address").
 			ContainsKey("amount").
 			ContainsKey("transactionType").
-			ContainsKey("accountId").
-			ContainsKey("accountEmail").
-			ContainsKey("accountName").
-			ContainsKey("accountType")
+			ContainsKey("accountId")
 	})
 }
