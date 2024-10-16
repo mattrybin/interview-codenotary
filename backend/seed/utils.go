@@ -29,12 +29,10 @@ func readJSONFile[T any](file string) ([]T, error) {
 	return result, nil
 }
 
-// ReadAccounts reads the accounts from the JSON file
 func ReadAccounts(file string) ([]Account, error) {
 	return readJSONFile[Account](file)
 }
 
-// ReadTransactions reads the transactions from the JSON file
 func ReadTransactions(file string) ([]Transaction, error) {
 	return readJSONFile[Transaction](file)
 }

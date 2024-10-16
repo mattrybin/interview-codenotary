@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 
 	"github.com/mattrybin/interview-codenotary/backend/utils"
@@ -36,8 +35,8 @@ type searchResultAccount struct {
 	SearchID string `json:"searchId"`
 }
 
-func GetAccounts(collection string) ([]Account, error) {
-	url := fmt.Sprintf("https://vault.immudb.io/ics/api/v1/ledger/default/collection/%s/documents/search", collection)
+func GetAccounts() ([]Account, error) {
+	url := "https://vault.immudb.io/ics/api/v1/ledger/default/collection/accounts/documents/search"
 
 	query := map[string]interface{}{
 		"page":    1,
@@ -51,10 +50,8 @@ func GetAccounts(collection string) ([]Account, error) {
 
 	apiKey := utils.GetAPIKey("accounts")
 
-	log.Println("Fetching collection", collection, "with key", apiKey)
-
 	if apiKey == "" {
-		return nil, fmt.Errorf("unknown collection: %s", collection)
+		return nil, fmt.Errorf("unknown collection: %s", "accounts")
 	}
 
 	res, err := utils.MakeRequest("POST", url, apiKey, jsonQuery)
@@ -64,7 +61,7 @@ func GetAccounts(collection string) ([]Account, error) {
 	defer res.Body.Close()
 
 	if res.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("failed to fetch documents from collection %s: %s", collection, res.Status)
+		return nil, fmt.Errorf("failed to fetch documents from collection %s: %s", "accounts", res.Status)
 	}
 
 	body, err := ioutil.ReadAll(res.Body)

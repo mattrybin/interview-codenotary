@@ -10,7 +10,6 @@ import (
 	"github.com/mattrybin/interview-codenotary/backend/utils"
 )
 
-// Document represents the structure of a single document
 type Document struct {
 	AccountName string    `json:"accountName"`
 	CreatedDate string    `json:"createdDate"`
@@ -20,13 +19,11 @@ type Document struct {
 	VaultMD     VaultMeta `json:"_vault_md"`
 }
 
-// VaultMeta represents the metadata of a document
 type VaultMeta struct {
 	Creator string `json:"creator"`
 	TS      int64  `json:"ts"`
 }
 
-// SearchResult represents the structure of the search response
 type SearchResult struct {
 	Revisions []struct {
 		Document Document `json:"document"`

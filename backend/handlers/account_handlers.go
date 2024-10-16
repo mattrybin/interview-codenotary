@@ -19,7 +19,7 @@ type Account struct {
 }
 
 func GetAccounts(c *gin.Context) {
-	accountsCollection, err := model.GetAccounts("accounts")
+	accountsCollection, err := model.GetAccounts()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Error reading accounts data",

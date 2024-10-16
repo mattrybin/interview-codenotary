@@ -14,7 +14,6 @@ func SetupApp() *gin.Engine {
 	router := gin.Default()
 	godotenv.Load()
 
-	// Configure CORS
 	config := cors.Config{
 		AllowOrigins:     []string{"http://localhost:3000"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
@@ -24,7 +23,6 @@ func SetupApp() *gin.Engine {
 		MaxAge:           12 * time.Hour,
 	}
 
-	// Use CORS middleware
 	router.Use(cors.New(config))
 
 	router.GET("/accounts", handlers.GetAccounts)

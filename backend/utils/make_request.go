@@ -2,7 +2,6 @@ package utils
 
 import (
 	"bytes"
-	"log"
 	"net/http"
 	"time"
 )
@@ -10,8 +9,6 @@ import (
 func MakeRequest(method, url, apiKey string, body []byte) (*http.Response, error) {
 	// Add a delay of 1000 milliseconds before each request to avoid rate limiting
 	time.Sleep(1000 * time.Millisecond)
-
-	log.Println("Making request to", url, "with key", apiKey)
 
 	req, err := http.NewRequest(method, url, bytes.NewBuffer(body))
 	if err != nil {
