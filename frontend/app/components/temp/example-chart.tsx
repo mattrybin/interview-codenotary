@@ -26,7 +26,6 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ExampleChart({ transactions }: { transactions: TransactionType[] }) {
-  console.log("transactions", transactions)
   const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("receiving")
 
   const filteredData = React.useMemo(() => {

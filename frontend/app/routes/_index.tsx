@@ -3,16 +3,15 @@ import { useLoaderData } from "@remix-run/react"
 import { ExampleChart } from "../components/temp/example-chart"
 import { AccountType } from "../types/account"
 import { TransactionType } from "../types/transaction"
+import { backendUrl } from "../env"
 
 export const loader: LoaderFunction = async () => {
-  const accountsResponse = await fetch("http://localhost:4000/accounts")
+  const accountsResponse = await fetch(`${backendUrl}/accounts`)
   const accounts: AccountType[] = await accountsResponse.json()
 
   const accountsWithTransactions = await Promise.all(
     accounts.map(async (account) => {
-      const transactionsResponse = await fetch(
-        `http://localhost:4000/accounts/${account.id}/transactions`
-      )
+      const transactionsResponse = await fetch(`${backendUrl}/accounts/${account.id}/transactions`)
       const transactions: TransactionType[] = await transactionsResponse.json()
       return { ...account, transactions }
     })

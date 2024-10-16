@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import ky from "ky"
 import { Button } from "../ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label"
 import { AccountType } from "../../types/account"
+import { backendUrl } from "../../env"
 
 export const CreateTransaction = () => {
   const navigate = useNavigate()
@@ -19,7 +19,11 @@ export const CreateTransaction = () => {
   useEffect(() => {
     const fetchAccounts = async () => {
       try {
-        const fetchedAccounts: AccountType[] = await ky.get(`http://localhost:4000/accounts`).json()
+        const response = await fetch(`${backendUrl}/accounts`)
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const fetchedAccounts: AccountType[] = await response.json()
         setAccounts(fetchedAccounts)
       } catch (error) {
         console.error("Error fetching accounts:", error)
@@ -31,15 +35,23 @@ export const CreateTransaction = () => {
 
   const handleSubmit = async () => {
     try {
-      await ky
-        .post(`http://localhost:4000/accounts/${selectedAccount}/transactions`, {
-          json: {
-            accountId: selectedAccount,
-            amount: parseInt(amount),
-            transactionType: transactionType
-          }
+      const response = await fetch(`${backendUrl}/accounts/${selectedAccount}/transactions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          accountId: selectedAccount,
+          amount: parseInt(amount),
+          transactionType: transactionType
         })
-        .json()
+      })
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok")
+      }
+
+      await response.json()
 
       console.log("Transaction created successfully")
       setIsSheetOpen(false)

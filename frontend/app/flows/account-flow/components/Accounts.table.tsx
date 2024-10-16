@@ -76,7 +76,6 @@ const AccountTable = ({ accounts, filter }: { accounts: AccountType[]; filter: s
 }
 
 export const AccountsTable = ({ accounts }: { accounts: AccountType[] }) => {
-  console.log(accounts)
   return (
     <Tabs defaultValue="All">
       <div className="flex items-center">

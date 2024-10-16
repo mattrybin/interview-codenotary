@@ -3,11 +3,11 @@ import ky from "ky"
 import { AccountsTable } from "../flows/account-flow/components/Accounts.table"
 import { AccountType } from "../types/account"
 import { useLoaderData } from "@remix-run/react"
+import { backendUrl } from "../env"
 
 export const loader: LoaderFunction = async () => {
   try {
-    const accounts: AccountType[] = await ky.get(`http://localhost:4000/accounts`).json()
-    console.log(accounts)
+    const accounts: AccountType[] = await ky.get(`${backendUrl}/accounts`).json()
     return json({ accounts })
   } catch (error) {
     console.error("Error fetching accounts:", error)
