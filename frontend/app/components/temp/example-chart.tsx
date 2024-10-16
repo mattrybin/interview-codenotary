@@ -10,7 +10,7 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from "../../components/ui/chart"
-import { accounts, generateTransactions, getUniqueAccountCount } from "../../dummy/transactions"
+import { TransactionType } from "../../types/transaction"
 
 export const description = "An interactive bar chart"
 
@@ -25,34 +25,32 @@ const chartConfig = {
   }
 } satisfies ChartConfig
 
-export function ExampleChart() {
-  const chartData = generateTransactions("1")
+export function ExampleChart({ transactions }: { transactions: TransactionType[] }) {
+  console.log("transactions", transactions)
   const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("receiving")
 
   const filteredData = React.useMemo(() => {
-    return chartData.filter((t) => t.transactionType === activeChart)
-  }, [activeChart, chartData])
+    return transactions.filter((t) => t.transactionType === activeChart)
+  }, [activeChart, transactions])
 
   const total = React.useMemo(
     () => ({
-      receiving: chartData
+      receiving: transactions
         .filter((t) => t.transactionType === "receiving")
         .reduce((acc, curr) => acc + curr.amount, 0),
-      sending: chartData
+      sending: transactions
         .filter((t) => t.transactionType === "sending")
         .reduce((acc, curr) => acc + curr.amount, 0)
     }),
-    [chartData]
+    [transactions]
   )
 
-  const accountCount = React.useMemo(() => getUniqueAccountCount(accounts), [])
-
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
           <CardTitle>Transactions</CardTitle>
-          <CardDescription>from {accountCount} different accounts</CardDescription>
+          <CardDescription>from {transactions.length} transactions</CardDescription>
         </div>
         <div className="flex">
           {["receiving", "sending"].map((key) => {
@@ -76,7 +74,7 @@ export function ExampleChart() {
       <CardContent className="px-2 sm:p-6">
         <ChartContainer
           config={chartConfig}
-          className="aspect-auto h-[250px] w-full"
+          className="h-[250px] w-full"
         >
           <BarChart
             accessibilityLayer
@@ -88,7 +86,7 @@ export function ExampleChart() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="date"
+              dataKey="createdDate"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
