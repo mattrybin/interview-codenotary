@@ -1,0 +1,602 @@
+[
+  {
+    "createdDate": "2024-09-18T10:07:56.240Z",
+    "amount": 45180,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-10-10T11:06:07.520Z",
+    "amount": 1929,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-10-10T15:19:46.340Z",
+    "amount": 9734,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-10-06T08:41:15.480Z",
+    "amount": 1470,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-09-17T19:25:39.155Z",
+    "amount": 11740,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-09-30T08:42:23.923Z",
+    "amount": 9650,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-10-03T06:55:57.118Z",
+    "amount": 1718,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-09-30T13:51:31.740Z",
+    "amount": 7663,
+    "transactionType": "receiving",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-09-17T17:06:24.638Z",
+    "amount": 8496,
+    "transactionType": "sending",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-09-30T13:13:33.767Z",
+    "amount": 6326,
+    "transactionType": "sending",
+    "accountId": "1001"
+  },
+  {
+    "createdDate": "2024-10-01T07:39:17.163Z",
+    "amount": 1512,
+    "transactionType": "receiving",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-10-04T00:22:41.857Z",
+    "amount": 9071,
+    "transactionType": "sending",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-10-09T09:41:51.870Z",
+    "amount": 1230,
+    "transactionType": "receiving",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-09-16T19:24:22.655Z",
+    "amount": 2741,
+    "transactionType": "sending",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-09-22T10:53:36.771Z",
+    "amount": 5169,
+    "transactionType": "receiving",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-10-13T08:36:01.104Z",
+    "amount": 9054,
+    "transactionType": "receiving",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-09-16T19:07:38.075Z",
+    "amount": 3259,
+    "transactionType": "sending",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-09-23T10:05:29.678Z",
+    "amount": 74800,
+    "transactionType": "sending",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-10-05T11:00:05.425Z",
+    "amount": 1164,
+    "transactionType": "receiving",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-10-03T16:13:03.337Z",
+    "amount": 28480,
+    "transactionType": "receiving",
+    "accountId": "1002"
+  },
+  {
+    "createdDate": "2024-09-29T03:03:14.103Z",
+    "amount": 7588,
+    "transactionType": "sending",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-10-06T21:34:12.822Z",
+    "amount": 10097,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-09-26T09:15:47.796Z",
+    "amount": 1837,
+    "transactionType": "sending",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-09-28T04:06:41.224Z",
+    "amount": 91980,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-09-22T02:38:36.429Z",
+    "amount": 60370,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-10-03T11:09:01.632Z",
+    "amount": 4311,
+    "transactionType": "sending",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-10-10T09:23:42.628Z",
+    "amount": 1003,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-09-19T10:00:12.868Z",
+    "amount": 4816,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-10-07T08:22:21.633Z",
+    "amount": 5665,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-09-16T08:46:11.956Z",
+    "amount": 42190,
+    "transactionType": "receiving",
+    "accountId": "1003"
+  },
+  {
+    "createdDate": "2024-09-26T01:25:42.667Z",
+    "amount": 6096,
+    "transactionType": "receiving",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-10-12T13:22:33.438Z",
+    "amount": 4921,
+    "transactionType": "sending",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-09-22T02:20:11.404Z",
+    "amount": 46000,
+    "transactionType": "receiving",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-10-07T01:06:35.939Z",
+    "amount": 8939,
+    "transactionType": "sending",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-09-26T08:28:03.192Z",
+    "amount": 1890,
+    "transactionType": "receiving",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-09-22T01:37:47.478Z",
+    "amount": 100680,
+    "transactionType": "receiving",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-10-02T18:05:16.175Z",
+    "amount": 5874,
+    "transactionType": "receiving",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-09-23T21:06:13.965Z",
+    "amount": 7205,
+    "transactionType": "sending",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-10-06T18:13:18.651Z",
+    "amount": 2008,
+    "transactionType": "sending",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-09-29T18:06:41.878Z",
+    "amount": 9023,
+    "transactionType": "sending",
+    "accountId": "1004"
+  },
+  {
+    "createdDate": "2024-10-13T22:09:38.281Z",
+    "amount": 7418,
+    "transactionType": "sending",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-15T18:37:11.934Z",
+    "amount": 5902,
+    "transactionType": "receiving",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-10-11T12:38:24.076Z",
+    "amount": 35750,
+    "transactionType": "receiving",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-10-06T23:30:16.092Z",
+    "amount": 1653,
+    "transactionType": "sending",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-22T11:08:54.477Z",
+    "amount": 16900,
+    "transactionType": "sending",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-21T04:45:01.655Z",
+    "amount": 9588,
+    "transactionType": "sending",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-29T18:07:46.009Z",
+    "amount": 39910,
+    "transactionType": "receiving",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-28T03:02:50.164Z",
+    "amount": 92510,
+    "transactionType": "receiving",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-27T18:18:14.116Z",
+    "amount": 9555,
+    "transactionType": "sending",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-10-03T17:01:20.326Z",
+    "amount": 1036,
+    "transactionType": "sending",
+    "accountId": "1005"
+  },
+  {
+    "createdDate": "2024-09-18T09:42:16.236Z",
+    "amount": 75880,
+    "transactionType": "receiving",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-10-02T08:22:51.065Z",
+    "amount": 6728,
+    "transactionType": "receiving",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-09-16T04:28:03.461Z",
+    "amount": 7902,
+    "transactionType": "sending",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-09-16T06:37:36.518Z",
+    "amount": 9610,
+    "transactionType": "receiving",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-09-27T11:17:31.667Z",
+    "amount": 5825,
+    "transactionType": "sending",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-10-14T22:14:08.590Z",
+    "amount": 5696,
+    "transactionType": "receiving",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-10-07T10:35:41.412Z",
+    "amount": 8782,
+    "transactionType": "sending",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-10-03T05:52:15.764Z",
+    "amount": 68410,
+    "transactionType": "receiving",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-10-07T06:11:44.974Z",
+    "amount": 4733,
+    "transactionType": "receiving",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-09-17T16:49:41.554Z",
+    "amount": 6840,
+    "transactionType": "sending",
+    "accountId": "1006"
+  },
+  {
+    "createdDate": "2024-10-05T01:57:28.867Z",
+    "amount": 745,
+    "transactionType": "receiving",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-10-07T19:26:25.083Z",
+    "amount": 2107,
+    "transactionType": "sending",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-09-29T05:37:44.852Z",
+    "amount": 3321,
+    "transactionType": "receiving",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-10-10T06:43:52.884Z",
+    "amount": 6175,
+    "transactionType": "receiving",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-09-25T19:26:32.781Z",
+    "amount": 7442,
+    "transactionType": "sending",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-10-12T21:16:44.594Z",
+    "amount": 8554,
+    "transactionType": "sending",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-09-30T20:13:23.165Z",
+    "amount": 7592,
+    "transactionType": "receiving",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-10-15T04:16:51.332Z",
+    "amount": 28030,
+    "transactionType": "receiving",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-09-30T02:23:35.824Z",
+    "amount": 8640,
+    "transactionType": "sending",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-09-16T05:50:01.037Z",
+    "amount": 7168,
+    "transactionType": "receiving",
+    "accountId": "1007"
+  },
+  {
+    "createdDate": "2024-09-21T20:14:12.204Z",
+    "amount": 4093,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-09-15T13:18:29.467Z",
+    "amount": 14770,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-10-10T14:31:52.972Z",
+    "amount": 50330,
+    "transactionType": "sending",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-09-29T13:37:08.845Z",
+    "amount": 9022,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-09-30T00:49:10.593Z",
+    "amount": 89000,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-09-26T14:01:56.459Z",
+    "amount": 638,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-10-13T16:58:08.130Z",
+    "amount": 9783,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-10-01T19:00:55.048Z",
+    "amount": 7936,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-10-13T11:36:19.411Z",
+    "amount": 2009,
+    "transactionType": "receiving",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-09-29T15:26:57.360Z",
+    "amount": 9470,
+    "transactionType": "sending",
+    "accountId": "1008"
+  },
+  {
+    "createdDate": "2024-09-30T03:13:45.183Z",
+    "amount": 4657,
+    "transactionType": "sending",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-09-19T19:51:27.822Z",
+    "amount": 7036,
+    "transactionType": "sending",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-09-21T21:34:27.313Z",
+    "amount": 2598,
+    "transactionType": "receiving",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-10-07T18:03:38.199Z",
+    "amount": 9040,
+    "transactionType": "receiving",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-10-05T18:00:58.602Z",
+    "amount": 6911,
+    "transactionType": "sending",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-10-02T14:59:47.374Z",
+    "amount": 9716,
+    "transactionType": "receiving",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-10-08T23:54:59.257Z",
+    "amount": 91160,
+    "transactionType": "sending",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-09-15T15:55:57.644Z",
+    "amount": 2721,
+    "transactionType": "receiving",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-10-06T16:50:02.516Z",
+    "amount": 3759,
+    "transactionType": "sending",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-09-30T23:12:01.825Z",
+    "amount": 1598,
+    "transactionType": "sending",
+    "accountId": "1009"
+  },
+  {
+    "createdDate": "2024-10-03T18:20:43.117Z",
+    "amount": 1900,
+    "transactionType": "receiving",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-10-12T02:02:05.019Z",
+    "amount": 1886,
+    "transactionType": "sending",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-10-04T01:21:33.678Z",
+    "amount": 7093,
+    "transactionType": "sending",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-09-30T03:13:30.409Z",
+    "amount": 42840,
+    "transactionType": "sending",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-09-19T06:33:13.352Z",
+    "amount": 9634,
+    "transactionType": "receiving",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-09-18T12:02:00.701Z",
+    "amount": 30430,
+    "transactionType": "receiving",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-10-01T16:36:16.577Z",
+    "amount": 3921,
+    "transactionType": "sending",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-09-28T10:31:32.409Z",
+    "amount": 1540,
+    "transactionType": "receiving",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-09-16T19:11:17.288Z",
+    "amount": 85190,
+    "transactionType": "sending",
+    "accountId": "1010"
+  },
+  {
+    "createdDate": "2024-10-13T07:38:20.830Z",
+    "amount": 9420,
+    "transactionType": "receiving",
+    "accountId": "1010"
+  }
+]
